@@ -11,16 +11,20 @@ defmodule HTTPDigex do
   The header key you need to use is `authorization`.
 
   ## Example
-    import HTTPDigex
-    digest_auth = create_digest("user", "password", "/index.html", "Administration")
-    # put the digest_auth on your request now
+  ```
+  import HTTPDigex
+  digest_auth = create_digest("user", "password", "/index.html", "Administration")
+  # put the digest_auth on your request now
+  ```
   """
 
   @doc """
   Create the digest authentication header value based on username, password, uri, realm and http method
 
   ## Example
+  ```
   HTTPDigex.create_digest("user", "password", "Admin panel", "/admin.html", "POST")
+  ```
   """
   @spec create_digest(String.t, String.t, String.t, String.t, String.t) :: String.t
   def create_digest(username, password, realm, uri \\ "/", method \\ "GET") do
