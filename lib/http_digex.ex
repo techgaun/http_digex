@@ -47,12 +47,8 @@ defmodule HTTPDigex do
     "Digest username=\"#{username}\", realm=\"#{realm}\", nonce=\"#{nonce}\", uri=\"#{uri}\", response=\"#{auth}\", opaque=\"\""
   end
 
-  @doc """
-  Creates random string of given length
-  Used for random nonce creation
-  """
   @spec random_string(Integer.t) :: String.t
-  def random_string(length) do
+  defp random_string(length) do
     length
     |> :crypto.strong_rand_bytes
     |> Base.url_encode64

@@ -2,11 +2,6 @@ defmodule HTTPDigexTest do
   use ExUnit.Case
   doctest HTTPDigex
 
-  test "random_string/1 creates random string of length X correctly" do
-    refute HTTPDigex.random_string(16) == HTTPDigex.random_string(16) # this needs more care
-    assert String.length(HTTPDigex.random_string(16)) === 16
-  end
-
   test "create_digest/5 creates auth digest correctly" do
     username = "test"
     password = "pwd"
