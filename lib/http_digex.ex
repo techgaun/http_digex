@@ -13,7 +13,7 @@ defmodule HTTPDigex do
   ## Example
   ```
   import HTTPDigex
-  digest_auth = create_digest("user", "password", "/index.html", "Administration")
+  digest_auth = create_digest("user", "password", "Admin Panel", "/index.html")
   # put the digest_auth on your request now
   ```
   """

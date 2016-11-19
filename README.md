@@ -1,4 +1,7 @@
-# http_digex [![Hex version](https://img.shields.io/hexpm/v/http_digex.svg "Hex version")](https://hex.pm/packages/http_digex) ![Hex downloads](https://img.shields.io/hexpm/dt/http_digex.svg "Hex downloads") [![Build Status](https://semaphoreci.com/api/v1/samaracharya/http_digex/branches/master/badge.svg)](https://semaphoreci.com/samaracharya/http_digex) [![Coverage Status](https://coveralls.io/repos/github/techgaun/http_digex/badge.svg?branch=master)](https://coveralls.io/github/techgaun/http_digex?branch=master)
+# http_digex
+
+[![Hex version](https://img.shields.io/hexpm/v/http_digex.svg "Hex version")](https://hex.pm/packages/http_digex) ![Hex downloads](https://img.shields.io/hexpm/dt/http_digex.svg "Hex downloads") [![Build Status](https://semaphoreci.com/api/v1/techgaun/http_digex/branches/master/badge.svg)](https://semaphoreci.com/techgaun/http_digex) [![Coverage Status](https://coveralls.io/repos/github/techgaun/http_digex/badge.svg?branch=master)](https://coveralls.io/github/techgaun/http_digex?branch=master)
+
 > HTTP Digest Auth Library to create auth header to be used with HTTP Digest Authentication
 
 ## Installation
