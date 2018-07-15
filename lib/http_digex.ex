@@ -26,32 +26,42 @@ defmodule HTTPDigex do
   HTTPDigex.create_digest("user", "password", "Admin panel", "/admin.html", "POST")
   ```
   """
-  @spec create_digest(String.t, String.t, String.t, String.t, String.t) :: String.t
+  @spec create_digest(String.t(), String.t(), String.t(), String.t(), String.t()) :: String.t()
   def create_digest(username, password, realm, uri \\ "/", method \\ "GET") do
-    ha1 = :md5
+    ha1 =
+      :md5
       |> :crypto.hash(Enum.join([username, realm, password], ":"))
-      |> Base.encode16
-      |> String.downcase
-    ha2 = :md5
+      |> Base.encode16()
+      |> String.downcase()
+
+    ha2 =
+      :md5
       |> :crypto.hash(Enum.join([method, uri], ":"))
-      |> Base.encode16
-      |> String.downcase
-    nonce = :md5
+      |> Base.encode16()
+      |> String.downcase()
+
+    nonce =
+      :md5
       |> :crypto.hash(random_string(16))
-      |> Base.encode16
-      |> String.downcase
-    auth = :md5
+      |> Base.encode16()
+      |> String.downcase()
+
+    auth =
+      :md5
       |> :crypto.hash(Enum.join([ha1, nonce, ha2], ":"))
-      |> Base.encode16
-      |> String.downcase
-    "Digest username=\"#{username}\", realm=\"#{realm}\", nonce=\"#{nonce}\", uri=\"#{uri}\", response=\"#{auth}\", opaque=\"\""
+      |> Base.encode16()
+      |> String.downcase()
+
+    "Digest username=\"#{username}\", realm=\"#{realm}\", nonce=\"#{nonce}\", uri=\"#{uri}\", response=\"#{
+      auth
+    }\", opaque=\"\""
   end
 
-  @spec random_string(Integer.t) :: String.t
+  @spec random_string(Integer.t()) :: String.t()
   defp random_string(length) do
     length
-    |> :crypto.strong_rand_bytes
-    |> Base.url_encode64
+    |> :crypto.strong_rand_bytes()
+    |> Base.url_encode64()
     |> binary_part(0, length)
   end
 end
